@@ -7,6 +7,8 @@
 APickup_Item_Default_Weapon::APickup_Item_Default_Weapon() 
 {
 	ItemData.IsEquipable = true;
+	BaseDamage = 50.0f;
+	BaseSpeed = 1.5f;
 }
 
 void APickup_Item_Default_Weapon::AttachWeapon(ATrueFirstPersonCharacter* character)

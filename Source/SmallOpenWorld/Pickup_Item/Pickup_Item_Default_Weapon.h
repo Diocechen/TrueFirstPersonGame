@@ -19,4 +19,10 @@ public:
 	virtual void AttachWeapon(ATrueFirstPersonCharacter* character);
 
 	void DetachWeapon();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Weapon)
+	float BaseDamage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Weapon)
+	float BaseSpeed;
 };

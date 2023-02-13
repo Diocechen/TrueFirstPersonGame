@@ -16,7 +16,7 @@ ATrueFirstPersonCharacter::ATrueFirstPersonCharacter()
 
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
-	TurnRateGamepad = 50.f; //旋轉率
+	TurnRate = 50.f; //旋轉率
 
 	bUseControllerRotationPitch = false; //固定住 Character 不然會很奇怪
 	bUseControllerRotationYaw = true; //但是不鎖定 Z 軸 (YAW) 旋轉，不然動作會很奇怪
@@ -39,12 +39,15 @@ ATrueFirstPersonCharacter::ATrueFirstPersonCharacter()
 
 	PlayerHealth = 50.0f;
 	Stamina = 100.0f;
+	BasicDamage = 30.0f;
+	AttackSpeed = 1.0f;
 
 	IsSprinting = false;
 
 	IsPunching = false;
 
 	IsEquipSomethingInHand = false;
+	currentWeapon = nullptr;
 
 	//LineTraceComp = CreateDefaultSubobject<ALineTrace>(TEXT("LineTraceComp"));
 
@@ -119,12 +122,12 @@ void ATrueFirstPersonCharacter::MoveRight(float Value)
 
 void ATrueFirstPersonCharacter::TurnRight(float Rate)
 {
-	AddControllerYawInput(Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds());
+	AddControllerYawInput(Rate * TurnRate * GetWorld()->GetDeltaSeconds());
 }
 
 void ATrueFirstPersonCharacter::LookUp(float Rate)
 {
-	AddControllerPitchInput(Rate * TurnRateGamepad * GetWorld()->GetDeltaSeconds());
+	AddControllerPitchInput(Rate * TurnRate * GetWorld()->GetDeltaSeconds());
 }
 
 void ATrueFirstPersonCharacter::SprintStart()

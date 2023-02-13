@@ -27,10 +27,16 @@ public:
 	ATrueFirstPersonCharacter();
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Input)
-	float TurnRateGamepad;
+	float TurnRate;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = State)
 	float PlayerHealth;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = State)
+	float BasicDamage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = State)
+	float AttackSpeed;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = PlayerMovement)
 	float SprintingSpeed;
